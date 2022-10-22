@@ -11,7 +11,6 @@ from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
 
-
 class predictImage(TemplateView):
     
     form = ImageForm
@@ -25,22 +24,21 @@ class predictImage(TemplateView):
             print(img_object.LeafName)
             imgPath = img_object.userImg.url
             imgPath = imgPath.split('/')[4]
-            file_path = os.path.join('D:/Semesters/semester6/SRP-2/FinalSega/srp/srp2/media/upload', imgPath)
+            file_path = os.path.join('D:/Semesters/semester6/SRP-2/Leaf-Disease-Detection-Cure-ML/srp/srp2/media/upload', imgPath)
             
             test_image = load_img(file_path, target_size = (256, 256,3)) # load image 
             test_image = img_to_array(test_image)/255 # convert image to np array and normalize
             test_image = np.expand_dims(test_image, axis = 0) # change dimention 3D to 4D
 
-            file_path = os.path.join('D:/Semesters/semester6/SRP-2/FinalSega/models', img_object.LeafName)
+            file_path = os.path.join('D:/Semesters/semester6/SRP-2/Leaf-Disease-Detection-Cure-ML/models', img_object.LeafName)
             print(file_path)
             model = load_model(file_path)
             
             result = model.predict(test_image) # predict diseased palnt or not
             pred = np.argmax(result, axis=1)
           
-            print(">>>>>>>>>>>>>>>>>> load results file >>>>>>>>>>>>>>>>>>>>")
-            df = pd.read_csv("C:/Users/somas/Desktop/supplement_info.csv", encoding = "ISO-8859-1", engine='python')
-            row = df.iloc[pred[0], :]
+            df = pd.read_csv("D:/Semesters/semester6/SRP-2/Leaf-Disease-Detection-Cure-ML/srp/static/supplement_info.csv", encoding = "ISO-8859-1", engine='python')
+            row = df.iloc[2, :]
             
             steps = row[6].split('.')
             
