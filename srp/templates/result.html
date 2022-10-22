@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <title>Cure for Problem</title>
+
+    <style></style>
+  </head>
+
+  <body>
+
+    <div class="container-xl">
+      <div class="container-fluid text-center text-light bg-dark p-3">
+        <h1>Cure for Problem</h1>
+      </div>
+    </div>
+    <br /><br />
+    <div class="container">
+      <div class="container p-5 border userImg">
+        {% if img_obj %}
+        <h4><b> Uploaded Image: </b></h4>
+        <div class="container">
+          <img
+            src="{{ img_obj.userImg.url}}"
+            alt="connect"
+            class="border border-success img-fluid rounded mx-auto d-block"
+          />
+        </div>
+        {% endif %}
+      </div>
+      <br />
+      <div class="container p-5 border status">
+        <h4><b>Disease Status: </b> {{disease_name}}</h4>
+      </div>
+      <br />
+      <div class="container p-5 border description">
+        <h4><b> Description : </b></h4>
+        <h5>{{ description }}</h5>
+      </div>
+      <div class="container p-5 border steps">
+        <h4><b> Steps : </b></h4>
+        <ul>{% for step in steps %}
+              <li>{{ step }}</li> 
+            {% endfor %}
+        </ul>
+        
+      </div>
+      <br>
+      <div class="container p-5 border supplement">
+        <h4><b> Disease Image :</b></h4>
+        <img
+          class="img-fluid mx-auto d-block border border-success"
+          src="{{ disease_img }}"
+        />
+      </div>
+      <br>
+      <div class="container p-5 border details">
+        <h4><b> Treatment : </b></h4>
+        <h5>{{ supplement_name }}</h5>
+      </div>
+      <br />
+      <div class="container p-5 border supplement">
+        <h4><b> Supplement Image :</b></h4>
+        <img
+          class="img-fluid mx-auto d-block border border-success"
+          src="{{ supplement_img }}"
+        />
+      </div>
+      <br />
+      <div class="container p-5 border buy">
+        <h4><b> Buy Link: </b></h4>
+        <h5>{{ buy_link }}</h5>
+      </div>
+      <br />
+    </div>
+
+    <section class="footer">
+      <div class="container-xl">
+        <footer
+          class="d-flex flex-wrap text-light bg-dark justify-content-between align-items-center py-3 my-4 border-top"
+        >
+          <p class="col-md-4 mb-0 text-light">&copy; 2022 ProjectK, Inc</p>
+          <ul class="nav col-md-4 justify-content-center list-unstyled d-flex">
+            <li class="ms-3">
+              <a class="text-light" href="#"
+                ><svg class="bi" width="24" height="24">
+                  <use xlink:href="#twitter" /></svg
+              ></a>
+            </li>
+            <li class="ms-3">
+              <a class="text-light" href="#"
+                ><svg class="bi" width="24" height="24">
+                  <use xlink:href="#instagram" /></svg
+              ></a>
+            </li>
+            <li class="ms-3">
+              <a class="text-light" href="#"
+                ><svg class="bi" width="24" height="24">
+                  <use xlink:href="#facebook" /></svg
+              ></a>
+            </li>
+          </ul>
+          <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item">
+              <a href="/" class="nav-link px-2 text-light">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-light">Features</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-light">About</a>
+            </li>
+          </ul>
+        </footer>
+      </div>
+    </section>
+  </body>
+</html>
+ 

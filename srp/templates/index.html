@@ -1,0 +1,115 @@
+{% load static %} {% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <title>Leaf Disease Detection</title>
+    <style>
+      .bg-image {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body class="text-dark bg-light text-responsive">
+    <div class="container-xl">
+      <div class="container-fluid text-center text-light bg-dark p-3">
+        <p class="h1 text-responsive">Leaf Disease Detection & Cure</p>
+      </div>
+    </div>
+    <br />
+    <div class="container overflow-hidden">
+      <div class="row gx-5">
+        <div class="col-md-6 border">
+          <p><b>Instructions</b></p>
+          <ul class="justify-content-center">
+            <li class="text-dark p-2">
+              Make sure that the selected name and image are correct
+            </li>
+            <li class="text-dark p-2">
+              Try to capture and upload best quality
+            </li>
+            <li class="text-dark p-2">
+              Capture the image in best side on angle for occurate results
+            </li>
+            <li class="text-dark p-2">Upload more than one image and verify</li>
+          </ul>
+        </div>
+        <div class="col-md-6 border p-5">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %} {{ form|crispy }}
+            <div class="col-md-12 text-center">
+              <button type="submit" class="btn btn-primary">Upload</button>
+              <input
+                type="button"
+                value="Reset"
+                class="btn btn-secondary"
+                id="resetBtn"
+                onClick="this.form.reset()"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+ 
+    <section class="footer">
+      <footer
+        class="container-xl d-flex flex-wrap text-light bg-dark justify-content-between align-items-center py-3 my-4"
+      >
+        <p class="col-md-4 mb-0 text-light">&copy; 2022 ProjectK, Inc</p>
+        <ul class="nav col-md-4 justify-content-center list-unstyled d-flex">
+          <li class="ms-3">
+            <a class="text-light" href="#"
+              ><svg class="bi" width="24" height="24">
+                <use xlink:href="#twitter" /></svg
+            ></a>
+          </li>
+          <li class="ms-3">
+            <a class="text-light" href="#"
+              ><svg class="bi" width="24" height="24">
+                <use xlink:href="#instagram" /></svg
+            ></a>
+          </li>
+          <li class="ms-3">
+            <a class="text-light" href="#"
+              ><svg class="bi" width="24" height="24">
+                <use xlink:href="#facebook" /></svg
+            ></a>
+          </li>
+        </ul>
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item">
+            <a href="/" class="nav-link px-2 text-light">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-light">Features</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-light">About</a>
+          </li>
+        </ul>
+      </footer>
+    </section>
+  </body>
+</html>
